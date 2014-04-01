@@ -64,29 +64,9 @@ add     ./google_auth_proxy/google_auth_proxy /usr/local/bin/google_auth_proxy
 # elasticsearch
 add	./elasticsearch/run /usr/local/bin/run_elasticsearch
 
-
-
 # Add system service config
 add	./nginx/nginx.conf /etc/nginx/nginx.conf
 add	./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-# Nginx
-#
-# graphite
-expose	85:80
-# grafana
-expose  86:81
-
-# Carbon line receiver port
-expose	2003:2003
-# Carbon pickle receiver port
-expose	2004:2004
-# Carbon cache query port
-expose	7002:7002
-
-# Statsd UDP port
-expose	8125:8125/udp
-# Statsd Management port
-expose	8126:8126
 
 cmd	["/usr/bin/supervisord"]
 
